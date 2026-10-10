@@ -1,4 +1,5 @@
 from pathlib import Path
+import logging
 import time
 
 import joblib
@@ -6,6 +7,9 @@ import pandas as pd
 from fastapi import FastAPI, HTTPException, Request, Response
 from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_LATEST
 from pydantic import BaseModel, ConfigDict
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
+logger = logging.getLogger("heart_disease_api")
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_PATH = ROOT / "models" / "heart_disease_model.joblib"
@@ -49,8 +53,20 @@ class PredictionRequest(BaseModel):
 @app.middleware("http")
 async def record_metrics(request: Request, call_next):
     start = time.perf_counter()
-    response = await call_next(request)
+    try:
+        response = await call_next(request)
+    except Exception:
+        duration = time.perf_counter() - start
+        logger.exception(
+            "request_failed method=%s path=%s duration_seconds=%.4f",
+            request.method, request.url.path, duration
+        )
+        raise
     duration = time.perf_counter() - start
+    logger.info(
+        "request_completed method=%s path=%s status=%s duration_seconds=%.4f",
+        request.method, request.url.path, response.status_code, duration
+    )
 
     REQUEST_COUNT.labels(
         request.method, request.url.path, str(response.status_code)

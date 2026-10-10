@@ -6,3 +6,6 @@ __pycache__/
 .env
 mlflow.db
 mlflow_backup_before_migration.db
+
+mlflow_artifacts/runs/
+.ruff_cache/
