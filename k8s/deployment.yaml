@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: heart-disease-api:v1
+          image: heart-disease-api:v2
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8000
