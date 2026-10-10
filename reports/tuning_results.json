@@ -1,0 +1,32 @@
+{
+  "note": "Separate tuning experiment. Existing production model and deployment were not changed. Test split was not used for tuning.",
+  "selected_by_cv_roc_auc": "logistic_regression",
+  "results": {
+    "logistic_regression": {
+      "model": "logistic_regression",
+      "search_method": "GridSearchCV",
+      "selection_metric": "mean 5-fold CV ROC-AUC",
+      "parameter_combinations_tested": 6,
+      "best_params": {
+        "model__C": 0.1,
+        "model__class_weight": "balanced"
+      },
+      "best_cv_roc_auc": 0.9027904462687071,
+      "best_cv_roc_auc_std": 0.016869568101549073
+    },
+    "random_forest": {
+      "model": "random_forest",
+      "search_method": "GridSearchCV",
+      "selection_metric": "mean 5-fold CV ROC-AUC",
+      "parameter_combinations_tested": 8,
+      "best_params": {
+        "model__class_weight": "balanced",
+        "model__max_depth": 10,
+        "model__min_samples_leaf": 2,
+        "model__n_estimators": 300
+      },
+      "best_cv_roc_auc": 0.8985501615936398,
+      "best_cv_roc_auc_std": 0.028159503371746584
+    }
+  }
+}
