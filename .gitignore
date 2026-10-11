@@ -9,3 +9,26 @@ mlflow_backup_before_migration.db
 
 mlflow_artifacts/runs/
 .ruff_cache/
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Secrets
+.env
+.env.*
+
+# MLflow local tracking data
+mlflow.db
+mlflow.db-shm
+mlflow.db-wal
+mlflow_artifacts/
+mlruns/
+
+# OS files
+.DS_Store
