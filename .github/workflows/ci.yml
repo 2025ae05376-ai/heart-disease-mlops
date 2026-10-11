@@ -41,3 +41,15 @@ jobs:
           test -s models/heart_disease_model.joblib
           test -s models/metrics.json
           python -c "import json; d=json.load(open('models/metrics.json')); assert d['selected_model'] in d['models']; print('Model artifact checks passed:', d['selected_model'])"
+      
+      - name: Upload model, metrics and evaluation plots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: heart-disease-mlops-artifacts
+          path: |
+            models/heart_disease_model.joblib
+            models/metrics.json
+            mlflow_artifacts/*.png
+          if-no-files-found: warn
+          retention-days: 14
