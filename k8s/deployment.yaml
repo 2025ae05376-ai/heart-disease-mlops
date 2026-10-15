@@ -36,9 +36,10 @@ kind: Service
 metadata:
   name: heart-disease-api
 spec:
+  type: LoadBalancer
   selector:
     app: heart-disease-api
   ports:
     - port: 8000
       targetPort: 8000
-  type: NodePort
+      nodePort: 30707
