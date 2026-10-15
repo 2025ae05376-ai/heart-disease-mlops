@@ -112,6 +112,10 @@ The NodePort and cluster IP can vary. Obtain current values using `minikube ip` 
 
 The API exposes Prometheus-compatible counters and latency histograms. `monitoring/prometheus.yml` is a scrape configuration template.
 
+## Report PDF of MLOps Assignment 1
+
+https://drive.google.com/file/d/1rUtM41fVHKnPF7aFNX2iD6p8a2mivEBa/view?usp=sharing
+
 ## Video Link of Demonstration
 
 https://drive.google.com/file/d/10i6eIjubRMZF1zun60Hqz4na3aeHUGW1/view 
