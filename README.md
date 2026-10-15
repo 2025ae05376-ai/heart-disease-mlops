@@ -2,8 +2,6 @@
 
 An educational MLOps project using the UCI Heart Disease Cleveland dataset, scikit-learn, MLflow, FastAPI, Docker, GitHub Actions, Minikube/Kubernetes and Prometheus-compatible metrics.
 
-**Disclaimer:** This is an academic demonstration, not a medical device or diagnostic tool.
-
 ## Project structure
 
 - `data/heart_disease_raw_with_target.csv` — prepared dataset
@@ -112,6 +110,8 @@ The NodePort and cluster IP can vary. Obtain current values using `minikube ip` 
 
 ## Monitoring and submission evidence
 
-The API exposes Prometheus-compatible counters and latency histograms. `monitoring/prometheus.yml` is a scrape configuration template; do not claim a separate Prometheus/Grafana server is running unless it has been verified.
+The API exposes Prometheus-compatible counters and latency histograms. `monitoring/prometheus.yml` is a scrape configuration template.
 
-Save genuine screenshots of EDA, model metrics, MLflow runs and artifacts, passing GitHub Actions, Docker/API testing, Minikube resources and `/metrics` in `screenshots/`. Add the final report and any required video link before submission.
+## Video Link of Demonstration
+
+https://drive.google.com/file/d/10i6eIjubRMZF1zun60Hqz4na3aeHUGW1/view 
